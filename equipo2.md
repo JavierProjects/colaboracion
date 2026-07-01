@@ -1,0 +1,4 @@
+- Arteaga Aguilar Ángel Isidro
+- Portillo González Bruno Yael
+- Martínez Hernández Gael
+- López Escamilla Melissa
