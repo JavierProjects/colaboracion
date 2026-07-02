@@ -7,56 +7,156 @@ condicionales, diccionarios y funciones.
 
 
 def contar_calificaciones(calificaciones):
-    pass
+    contador = 0
+
+    for calificacion in calificaciones:
+        contador += 1
+
+    return contador
+
 
 
 def sumar_calificaciones(calificaciones):
-    pass
+    suma = 0
+
+    for calificacion in calificaciones:
+        suma += calificacion
+
+    return suma
+
 
 
 def calificacion_maxima(calificaciones):
-    pass
+    if len(calificaciones) == 0:
+        return None
+
+    maxima = calificaciones[0]
+
+    for calificacion in calificaciones:
+        if calificacion > maxima:
+            maxima = calificacion
+
+    return maxima
+
 
 
 def calificacion_minima(calificaciones):
-    pass
+    if len(calificaciones) == 0:
+        return None
+
+    minima = calificaciones[0]
+
+    for calificacion in calificaciones:
+        if calificacion < minima:
+            minima = calificacion
+
+    return minima
 
 
 def contar_aprobados(calificaciones):
-    pass
+    contador = 0
 
+    for calificacion in calificaciones:
+        if calificacion >= 70:
+            contador += 1
 
+    return contador
+    
 def contar_reprobados(calificaciones):
-    pass
+    contador = 0
+
+    for calificacion in calificaciones:
+        if calificacion < 70:
+            contador += 1
+
+    return contador
 
 
 def clasificar_calificacion(calificacion):
-    pass
-
+    if calificacion >= 90:
+        return "Excelente"
+    elif calificacion >= 80:
+        return "Bueno"
+    elif calificacion >= 70:
+        return "Regular"
+    else:
+        return "Reprobado"
 
 def promedio(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return None
+
+    return sumar_calificaciones(calificaciones) / contar_calificaciones(calificaciones)
 
 
 def porcentaje_aprobados(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return 0.0
+
+    return (contar_aprobados(calificaciones) * 100) / contar_calificaciones(calificaciones)
 
 
 def porcentaje_reprobados(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return 0.0
+
+    return (contar_reprobados(calificaciones) * 100) / contar_calificaciones(calificaciones)
+
 
 
 def frecuencia_calificaciones(calificaciones):
-    pass
+    frecuencias = {}
 
+    for calificacion in calificaciones:
+        if calificacion in frecuencias:
+            frecuencias[calificacion] += 1
+        else:
+            frecuencias[calificacion] = 1
+
+    return frecuencias
 
 def moda(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return None
+
+    frecuencias = frecuencia_calificaciones(calificaciones)
+
+    mayor_frecuencia = 0
+    resultado = None
+
+    for calificacion in frecuencias:
+        if frecuencias[calificacion] > mayor_frecuencia:
+            mayor_frecuencia = frecuencias[calificacion]
+            resultado = calificacion
+
+    return resultado
+
 
 
 def mediana(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return None
 
+    datos = calificaciones.copy()
+    datos.sort()
+
+    n = contar_calificaciones(datos)
+    mitad = n // 2
+
+    if n % 2 == 1:
+        return datos[mitad]
+    else:
+        return (datos[mitad - 1] + datos[mitad]) / 2
 
 def resumen_calificaciones(calificaciones):
-    pass
+    return {
+        "total": contar_calificaciones(calificaciones),
+        "promedio": promedio(calificaciones),
+        "moda": moda(calificaciones),
+        "mediana": mediana(calificaciones),
+        "maxima": calificacion_maxima(calificaciones),
+        "minima": calificacion_minima(calificaciones),
+        "porcentaje_aprobados": porcentaje_aprobados(calificaciones),
+        "porcentaje_reprobados": porcentaje_reprobados(calificaciones),
+        "distribucion": frecuencia_calificaciones(calificaciones)
+    }
