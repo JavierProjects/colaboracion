@@ -27,7 +27,17 @@ def sumar_calificaciones(calificaciones):
 
 
 def calificacion_maxima(calificaciones):
-    pass
+    if len(calificaciones) == 0:
+        return None
+
+    maxima = calificaciones[0]
+
+    for calificacion in calificaciones:
+        if calificacion > maxima:
+            maxima = calificacion
+
+    return maxima
+
 
 
 def calificacion_minima(calificaciones):
