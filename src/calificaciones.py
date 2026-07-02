@@ -116,7 +116,21 @@ def frecuencia_calificaciones(calificaciones):
     return frecuencias
 
 def moda(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return None
+
+    frecuencias = frecuencia_calificaciones(calificaciones)
+
+    mayor_frecuencia = 0
+    resultado = None
+
+    for calificacion in frecuencias:
+        if frecuencias[calificacion] > mayor_frecuencia:
+            mayor_frecuencia = frecuencias[calificacion]
+            resultado = calificacion
+
+    return resultado
+
 
 
 def mediana(calificaciones):
