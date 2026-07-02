@@ -149,4 +149,14 @@ def mediana(calificaciones):
         return (datos[mitad - 1] + datos[mitad]) / 2
 
 def resumen_calificaciones(calificaciones):
-    pass
+    return {
+        "total": contar_calificaciones(calificaciones),
+        "promedio": promedio(calificaciones),
+        "moda": moda(calificaciones),
+        "mediana": mediana(calificaciones),
+        "maxima": calificacion_maxima(calificaciones),
+        "minima": calificacion_minima(calificaciones),
+        "porcentaje_aprobados": porcentaje_aprobados(calificaciones),
+        "porcentaje_reprobados": porcentaje_reprobados(calificaciones),
+        "distribucion": frecuencia_calificaciones(calificaciones)
+    }
