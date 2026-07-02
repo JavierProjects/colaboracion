@@ -104,10 +104,16 @@ def porcentaje_reprobados(calificaciones):
 
 
 
-
 def frecuencia_calificaciones(calificaciones):
-    pass
+    frecuencias = {}
 
+    for calificacion in calificaciones:
+        if calificacion in frecuencias:
+            frecuencias[calificacion] += 1
+        else:
+            frecuencias[calificacion] = 1
+
+    return frecuencias
 
 def moda(calificaciones):
     pass
