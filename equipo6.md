@@ -1,4 +1,4 @@
-- Monjaraz Perez Jonathan Jovany 
-- Garcia Azpeitia Gael
-- Galea Lopez Miguel
-- Mejia Escamilla Estrella Maria 
+- Mejia Escamilla Estrella Maria (01) 
+- Garcia Azpeitia Gael (02)
+- Galea Lopez Miguel (03)
+- Monjaraz Perez Jonathan Jovany (04)
