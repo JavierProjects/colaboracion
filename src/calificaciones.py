@@ -54,8 +54,13 @@ def calificacion_minima(calificaciones):
 
 
 def contar_aprobados(calificaciones):
-    pass
+    contador = 0
 
+    for calificacion in calificaciones:
+        if calificacion >= 70:
+            contador += 1
+
+    return contador
 
 def contar_reprobados(calificaciones):
     pass
