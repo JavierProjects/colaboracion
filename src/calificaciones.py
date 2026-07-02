@@ -17,7 +17,13 @@ def contar_calificaciones(calificaciones):
 
 
 def sumar_calificaciones(calificaciones):
-    pass
+    suma = 0
+
+    for calificacion in calificaciones:
+        suma += calificacion
+
+    return suma
+
 
 
 def calificacion_maxima(calificaciones):
