@@ -83,7 +83,11 @@ def clasificar_calificacion(calificacion):
         return "Reprobado"
 
 def promedio(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return None
+
+    return sumar_calificaciones(calificaciones) / contar_calificaciones(calificaciones)
+
 
 
 def porcentaje_aprobados(calificaciones):
