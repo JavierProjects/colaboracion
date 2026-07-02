@@ -41,7 +41,16 @@ def calificacion_maxima(calificaciones):
 
 
 def calificacion_minima(calificaciones):
-    pass
+    if len(calificaciones) == 0:
+        return None
+
+    minima = calificaciones[0]
+
+    for calificacion in calificaciones:
+        if calificacion < minima:
+            minima = calificacion
+
+    return minima
 
 
 def contar_aprobados(calificaciones):
