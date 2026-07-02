@@ -89,13 +89,20 @@ def promedio(calificaciones):
     return sumar_calificaciones(calificaciones) / contar_calificaciones(calificaciones)
 
 
-
 def porcentaje_aprobados(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return 0.0
+
+    return (contar_aprobados(calificaciones) * 100) / contar_calificaciones(calificaciones)
 
 
 def porcentaje_reprobados(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return 0.0
+
+    return (contar_reprobados(calificaciones) * 100) / contar_calificaciones(calificaciones)
+
+
 
 
 def frecuencia_calificaciones(calificaciones):
