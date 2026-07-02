@@ -15,7 +15,12 @@ a=[1,1,0,1]
 print(contar_clases(a))
 
 def contar_asistencias(asistencias_alumno):
-    pass
+    contador=0
+    for asistencia in asistencias_alumno:
+        if asistencia == 1:
+            contador+= 1
+    return contador
+    ##pass
 
 
 def contar_faltas(asistencias_alumno):
