@@ -25,3 +25,22 @@ def frecuencia_respuestas(respuestas):
             frecuencias[respuesta] = 1
 
     return frecuencias
+
+def respuesta_mas_comun(respuestas):
+    if respuestas == []:
+        return None
+
+    frecuencias = frecuencia_respuestas(respuestas)
+
+    mas_comun = None
+    mayor = 0
+
+    for respuesta in frecuencias:
+        if frecuencias[respuesta] > mayor:
+            mayor = frecuencias[respuesta]
+            mas_comun = respuesta
+
+    return mas_comun
+
+
+
