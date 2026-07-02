@@ -134,8 +134,19 @@ def moda(calificaciones):
 
 
 def mediana(calificaciones):
-    pass
+    if contar_calificaciones(calificaciones) == 0:
+        return None
 
+    datos = calificaciones.copy()
+    datos.sort()
+
+    n = contar_calificaciones(datos)
+    mitad = n // 2
+
+    if n % 2 == 1:
+        return datos[mitad]
+    else:
+        return (datos[mitad - 1] + datos[mitad]) / 2
 
 def resumen_calificaciones(calificaciones):
     pass
