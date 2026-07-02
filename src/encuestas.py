@@ -42,5 +42,21 @@ def respuesta_mas_comun(respuestas):
 
     return mas_comun
 
+def porcentaje_respuesta(respuestas, opcion):
+    total = contar_respuestas(respuestas)
+
+    if total == 0:
+        return 0.0
+
+    cantidad = 0
+
+    for respuesta in respuestas:
+        if respuesta == opcion:
+            cantidad = cantidad + 1
+
+    porcentaje = (cantidad / total) * 100
+
+    return porcentaje
+
 
 
