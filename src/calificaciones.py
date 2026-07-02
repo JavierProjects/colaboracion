@@ -72,11 +72,15 @@ def contar_reprobados(calificaciones):
     return contador
 
 
-
-
 def clasificar_calificacion(calificacion):
-    pass
-
+    if calificacion >= 90:
+        return "Excelente"
+    elif calificacion >= 80:
+        return "Bueno"
+    elif calificacion >= 70:
+        return "Regular"
+    else:
+        return "Reprobado"
 
 def promedio(calificaciones):
     pass
