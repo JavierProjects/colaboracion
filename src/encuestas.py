@@ -50,7 +50,16 @@ def respuesta_mas_comun(respuestas):
 
 
 def porcentaje_respuesta(respuestas, opcion):
-    pass
+    if len(respuestas) == 0:
+        return 0.0
+
+    contador = 0
+
+    for respuesta in respuestas:
+        if respuesta == opcion:
+            contador += 1
+
+    return (contador / len(respuestas)) * 100
 
 
 def resumen_encuesta(respuestas):
