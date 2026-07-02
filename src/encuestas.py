@@ -19,7 +19,7 @@ def obtener_opciones(respuestas):
         if respuesta not in opciones:
             opciones.append(respuesta)
     return opciones
-            
+        
     pass
 
 
