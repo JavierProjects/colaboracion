@@ -6,10 +6,20 @@ Implementa funciones para analizar respuestas usando listas y diccionarios.
 
 
 def contar_respuestas(respuestas):
+    
+    return len(respuestas)
+    
     pass
 
 
 def obtener_opciones(respuestas):
+    
+    opciones = []
+    for respuesta in respuestas:
+        if respuesta not in opciones:
+            opciones.append(respuesta)
+    return opciones
+            
     pass
 
 
