@@ -63,4 +63,11 @@ def porcentaje_respuesta(respuestas, opcion):
 
 
 def resumen_encuesta(respuestas):
-    pass
+    resumen = {
+        "total": contar_respuestas(respuestas),
+        "opciones": obtener_opciones(respuestas),
+        "frecuencias": frecuencia_respuestas(respuestas),
+        "mas_comun": respuesta_mas_comun(respuestas)
+    }
+
+    return resumen
