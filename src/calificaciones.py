@@ -77,7 +77,16 @@ def frecuencia_calificaciones(calificaciones):
 
 
 def moda(calificaciones):
-    pass
+    if not calificaciones:
+        return None
+    
+    frecuencias = {}
+    for nota in calificaciones:
+        frecuencias[nota] = frecuencias.get(nota, 0) + 1
+        
+    moda = max(frecuencias, key=frecuencias.get)
+    
+    return moda
 
 
 def mediana(calificaciones):
