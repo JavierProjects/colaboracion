@@ -155,3 +155,4 @@ def resumen_calificaciones(calificaciones):
         "porcentaje_reprobados": porcentaje_reprobados,
         "distribucion": distribucion
     }
+    return resultado
