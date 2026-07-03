@@ -35,7 +35,9 @@ def clasificar_calificacion(calificacion):
 
 
 def promedio(calificaciones):
-    
+    if not calificaciones:
+        return None
+    return sum(calificaciones) / len(calificaciones)
 
 
 def porcentaje_aprobados(calificaciones):
