@@ -90,7 +90,18 @@ def moda(calificaciones):
 
 
 def mediana(calificaciones):
-    pass
+    if not calificaciones:
+        return None
+    
+    ordenadas = sorted(calificaciones)
+    n = len(ordenadas)
+    centro = n // 2
+    
+    if n % 2 != 0:
+        return float(ordenadas[centro])
+    
+    else:
+        return (ordenadas[centro - 1] + ordenadas[centro]) / 2.0
 
 
 def resumen_calificaciones(calificaciones):
