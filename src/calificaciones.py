@@ -105,4 +105,53 @@ def mediana(calificaciones):
 
 
 def resumen_calificaciones(calificaciones):
-    pass
+    if not calificaciones:
+        return {
+            "total": 0,
+            "promedio": None,
+            "moda": None,
+            "mediana": None,
+            "maxima": None,
+            "minima": None,
+            "porcentaje_aprobados": 0.0,
+            "porcentaje_reprobados": 0.0,
+            "distribucion": {}
+        }
+    
+    total = len(calificaciones)
+    
+    maxima = max(calificaciones)
+    minima = min(calificaciones)
+    
+    promedio = sum(calificaciones) / total
+    
+    distribucion = {}
+    for nota in calificaciones:
+        distribucion[nota] = distribucion.get(nota, 0) + 1
+        
+    moda = max(distribucion, key=distribucion.get)
+    
+    notas_ordenadas = sorted(calificaciones)
+    indice_mitad = total // 2
+    if total % 2 != 0:
+        mediana = float(notas_ordenadas[indice_mitad])
+    else:
+        mediana = (notas_ordenadas[indice_mitad - 1] + notas_ordenadas[indice_mitad]) / 2.0
+        
+    aprobados = sum(1 for nota in calificaciones if nota >= 70)
+    reprobados = total - aprobados
+    
+    porcentaje_aprobados = (aprobados / total) * 100
+    porcentaje_reprobados = (reprobados / total) * 100
+    
+    return {
+        "total": total,
+        "promedio": promedio,
+        "moda": moda,
+        "mediana": mediana,
+        "maxima": maxima,
+        "minima": minima,
+        "porcentaje_aprobados": porcentaje_aprobados,
+        "porcentaje_reprobados": porcentaje_reprobados,
+        "distribucion": distribucion
+    }
