@@ -63,4 +63,23 @@ def alumnos_en_riesgo(asistencias):
 
 
 def promedio_asistencia_grupo(asistencias):
-    pass
+    if asistencias == []:
+        return 0.0
+    suma_porcentajes = 0.0
+    contador_alumnos = 0
+    for nombre in asistencias:
+        notas = asistencias[nombre]
+        asistencias_alumno = 0
+        total_clases_alumno = 0
+        for clase in notas:
+            total_clases_alumno = total_clases_alumno + 1
+            if clase == 1:
+                asistencias_alumno = asistencias_alumno + 1
+        if total_clases_alumno > 0:
+            porcentaje = (asistencias_alumno / total_clases_alumno) * 100
+            suma_porcentajes = suma_porcentajes + porcentaje
+        contador_alumnos = contador_alumnos + 1
+    if contador_alumnos > 0:
+        return suma_porcentajes / contador_alumnos
+    else:
+        return 0.0
