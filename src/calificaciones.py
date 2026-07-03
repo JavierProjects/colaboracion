@@ -41,7 +41,13 @@ def promedio(calificaciones):
 
 
 def porcentaje_aprobados(calificaciones):
-    pass
+    if not calificaciones:
+        return 0.0
+    aprobados = 0
+    for nota in calificaciones:
+        if nota >= 70:
+            aprobados += 1
+    return (aprobados / len(calificaciones)) * 100
 
 
 def porcentaje_reprobados(calificaciones):
