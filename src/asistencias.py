@@ -8,11 +8,18 @@ Representación:
 
 
 def contar_clases(asistencias_alumno):
-    pass
+    contador = 0
+    for clase in asistencias_alumno:
+        contador = contador + 1
+    return contador
 
 
 def contar_asistencias(asistencias_alumno):
-    pass
+    contador = 0
+    for clase in asistencias_alumno:
+        if clase == 1:
+            contador = contador + 1
+    return contador
 
 
 def contar_faltas(asistencias_alumno):
