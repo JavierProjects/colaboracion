@@ -35,7 +35,7 @@ def clasificar_calificacion(calificacion):
 
 
 def promedio(calificaciones):
-    pass
+    
 
 
 def porcentaje_aprobados(calificaciones):
