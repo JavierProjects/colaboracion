@@ -50,7 +50,16 @@ def esta_en_riesgo(asistencias_alumno):
 
 
 def alumnos_en_riesgo(asistencias):
-    pass
+    lista_en_riesgo = []
+    for nombre in asistencias:
+        notas = asistencias[nombre]
+        asis = 0
+        for clase in notas:
+            if clase == 1:
+                asis = asis + 25.0
+        if asis < 80:
+            lista_en_riesgo.append(nombre)
+    return lista_en_riesgo
 
 
 def promedio_asistencia_grupo(asistencias):
