@@ -51,7 +51,15 @@ def porcentaje_aprobados(calificaciones):
 
 
 def porcentaje_reprobados(calificaciones):
-    pass
+    if not calificaciones:
+        return 0.0
+    
+    reprobados = 0
+    for nota in calificaciones:
+        if nota < 70:
+            reprobados += 1
+            
+    return (reprobados / len(calificaciones)) * 100
 
 
 def frecuencia_calificaciones(calificaciones):
