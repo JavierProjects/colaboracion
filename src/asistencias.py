@@ -23,15 +23,30 @@ def contar_asistencias(asistencias_alumno):
 
 
 def contar_faltas(asistencias_alumno):
-    pass
+    contador = 0
+    for clase in asistencias_alumno:
+        if clase == 0:
+            contador = contador + 1
+    return contador
 
 
 def porcentaje_asistencia(asistencias_alumno):
-    pass
+    contador = 0
+    for clase in asistencias_alumno:
+        if clase == 1:
+            contador = contador + 25.0
+    return contador
 
 
 def esta_en_riesgo(asistencias_alumno):
-    pass
+    contador = 0
+    for clase in asistencias_alumno:
+        if clase == 1:
+            contador = contador + 25.0
+    if contador <= 80:
+        return True
+    else:
+        return False
 
 
 def alumnos_en_riesgo(asistencias):
