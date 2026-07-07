@@ -14,7 +14,13 @@ def contar_respuestas(respuestas):
     return total
 
 def obtener_opciones(respuestas):
-    pass
+    opciones = []
+
+    for respuesta in respuestas:
+        if respuesta not in opciones:
+            opciones.append(respuesta)
+
+    return opciones
 
 
 def frecuencia_respuestas(respuestas):
