@@ -70,7 +70,6 @@ def alumnos_en_riesgo(asistencias):
 
 
 def promedio_asistencia_grupo(asistencias):
-    # 1. Caso especial: si el diccionario está vacío, devolvemos 0.0 de inmediato
     if len(asistencias) == 0:
         return 0.0
     suma_porcentajes = 0
