@@ -38,7 +38,21 @@ def frecuencia_respuestas(respuestas):
 
 
 def respuesta_mas_comun(respuestas):
-    pass
+    if respuestas == []:
+        return None
+
+    frecuencias = frecuencia_respuestas(respuestas)
+
+    mas_comun = None
+    mayor = 0
+
+    for respuesta in frecuencias:
+        if frecuencias[respuesta] > mayor:
+            mayor = frecuencias[respuesta]
+            mas_comun = respuesta
+
+    return mas_comun
+
 
 
 def porcentaje_respuesta(respuestas, opcion):
