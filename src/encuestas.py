@@ -6,23 +6,80 @@ Implementa funciones para analizar respuestas usando listas y diccionarios.
 
 
 def contar_respuestas(respuestas):
-    pass
+       contador = 0
+    for respuesta in respuestas:
+        contador += 1
+        
+    return contador
+
+
+if __name__ == "__main__":
+   
+    entrada_1 = ["Python", "Java", "Python"]
+    resultado_1 = contar_respuestas(entrada_1)
+    print(f"Entrada: {entrada_1}")
+    print(f"Salida: {resultado_1}")  
+    
+    print("-" * 20)
 
 
 def obtener_opciones(respuestas):
-    pass
+       resultado = []
+
+    for r in respuestas:
+        if r not in resultado:
+            resultado.append(r)
+
+    return resultado
 
 
 def frecuencia_respuestas(respuestas):
-    pass
+     frecuencias = {}
+
+    for r in respuestas:
+        if r in frecuencias:
+            frecuencias[r] += 1
+        else:
+            frecuencias[r] = 1
+
+    return frecuencias
 
 
 def respuesta_mas_comun(respuestas):
-    pass
+     if len(respuestas) == 0:
+        return None
+
+    frecuencias = {}
+
+    for r in respuestas:
+        if r in frecuencias:
+            frecuencias[r] += 1
+        else:
+            frecuencias[r] = 1
+
+    max_respuesta = None
+    max_cantidad = 0
+
+    for clave, valor in frecuencias.items():
+        if valor > max_cantidad:
+            max_cantidad = valor
+            max_respuesta = clave
+
+    return max_respuesta
 
 
 def porcentaje_respuesta(respuestas, opcion):
-    pass
+     if len(respuestas) == 0:
+        return 0.0
+
+    total = len(respuestas)
+    contador = 0
+
+    for r in respuestas:
+        if r == opcion:
+            contador += 1
+
+    return (contador / total) * 100
 
 
 def resumen_encuesta(respuestas):
