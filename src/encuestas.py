@@ -24,7 +24,17 @@ def obtener_opciones(respuestas):
 
 
 def frecuencia_respuestas(respuestas):
-    pass
+    frecuencias = {}
+
+    for respuesta in respuestas:
+        if respuesta in frecuencias:
+            frecuencias[respuesta] = frecuencias[respuesta] + 1
+        else:
+            frecuencias[respuesta] = 1
+
+    return frecuencias
+
+
 
 
 def respuesta_mas_comun(respuestas):
