@@ -11,6 +11,11 @@ def contar_respuestas(respuestas):
 
 
 def obtener_opciones(respuestas):
+    opciones = []
+    for respuesta in respuestas:
+        if respuesta not in opciones:
+            opciones.append(respuesta)
+    return opciones
     pass
 
 
