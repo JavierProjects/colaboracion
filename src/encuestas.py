@@ -12,6 +12,8 @@ def contar_respuestas(respuestas):
 
 
 def obtener_opciones(respuestas):
+    if respuestas is None:
+        return []
     opciones_unicas = []
     for respuesta in respuestas:
         if respuesta not in opciones_unicas:
