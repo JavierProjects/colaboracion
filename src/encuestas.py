@@ -68,7 +68,7 @@ def porcentaje_respuesta(respuestas, opcion):
     pass
 
 
-def resumen_en(respuestas):
+def resumen_encuesta(respuestas):
     
     return {
         "total": contar_respuestas(respuestas),
