@@ -1,4 +1,4 @@
 - López Escamilla Melissa (01)
 - Martínez Hernández Gael (02)
-- Arteaga Aguilar Ángel Isidro (03)
-- Portillo González Bruno Yael (04)
+- Portillo González Bruno Yael (03)
+- Arteaga Aguilar Ángel Isidro (04) 
