@@ -35,8 +35,7 @@ def contar_aprobados(calificaciones):
         return 0
     aprobados = 0
     for c in calificaciones:
-        if c >= 70:
-
+   
     contador = 0
     for contar in calificaciones:
         contador += 1
@@ -83,7 +82,7 @@ def contar_reprobados(calificaciones):
         return 0
     reprobados = 0
     for c in calificaciones:
-        if c < 70:
+
             
     reprobados = 0
     for calificacion in calificaciones:
