@@ -8,17 +8,6 @@ Representación:
 
 
 def contar_clases(asistencias_alumno):
-<<<<<<< Updated upstream
-    pass
-
-
-def contar_asistencias(asistencias_alumno):
-    pass
-
-
-=======
-
-
     return len(asistencias_alumno)
 
 a=[1,1,0,1]
@@ -31,7 +20,6 @@ def contar_asistencias(asistencias_alumno):
             contador+= 1
     return contador
     ##pass
->>>>>>> Stashed changes
 def contar_faltas(asistencias_alumno):
     contador=0
     for asistencia in asistencias_alumno:
