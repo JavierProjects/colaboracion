@@ -1,62 +1,79 @@
-"""
-Módulo de calificaciones.
-
-Implementa estas funciones usando Python puro: listas, ciclos,
-condicionales, diccionarios y funciones.
-"""
-
-
 def contar_calificaciones(calificaciones):
-    pass
+    conteo = 0
+    for nota in calificaciones:
+        conteo = conteo + 1
+    return conteo
 
 
 def sumar_calificaciones(calificaciones):
-    pass
+    suma_total = 0
+    for nota in calificaciones:
+        suma_total = suma_total + nota
+
+    return suma_total
 
 
 def calificacion_maxima(calificaciones):
-    pass
+    if len(calificaciones) == 0:
+        return None
+
+    maxima = calificaciones[0]
+    for nota in calificaciones:
+        if nota > maxima:
+            maxima = nota
+
+    return maxima
 
 
 def calificacion_minima(calificaciones):
-    pass
+
+    if len(calificaciones) == 0:
+        return None
+        
+    minima = calificaciones[0]
+    
+    for nota in calificaciones:
+       
+        if nota < minima:
+            
+            minima = nota
+            
+    return minima
+
 
 
 def contar_aprobados(calificaciones):
-    pass
+    
+    aprobados = 0
+    
+    
+    for nota in calificaciones:
+        
+        if nota >= 70:
+           
+            aprobados = aprobados + 1
+            
+    return aprobados
 
 
 def contar_reprobados(calificaciones):
-    pass
+    reprobados = 0
+    for nota in calificaciones:
+        if nota < 70:
+            reprobados = reprobados + 1
+    return reprobados
+
 
 
 def clasificar_calificacion(calificacion):
-    pass
-
-
-def promedio(calificaciones):
-    pass
-
-
-def porcentaje_aprobados(calificaciones):
-    pass
-
-
-def porcentaje_reprobados(calificaciones):
-    pass
-
-
-def frecuencia_calificaciones(calificaciones):
-    pass
-
-
-def moda(calificaciones):
-    pass
-
-
-def mediana(calificaciones):
-    pass
-
-
-def resumen_calificaciones(calificaciones):
-    pass
+    if calificacion >= 90:
+        return "Excelente"
+        
+    elif calificacion >= 80:
+        return "Bueno"
+        
+    elif calificacion >= 70:
+        return "Regular"
+        
+    else:
+        return "Reprobado"
