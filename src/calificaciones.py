@@ -7,6 +7,7 @@ condicionales, diccionarios y funciones.
 
 
 def contar_calificaciones(calificaciones):
+
     contador = 0
 
     for calificacion in calificaciones:
@@ -90,10 +91,41 @@ def promedio(calificaciones):
         return None
 
     return sum(calificaciones) / len(calificaciones)
+=======
+    pass
+
+
+def sumar_calificaciones(calificaciones):
+    pass
+
+
+def calificacion_maxima(calificaciones):
+    pass
+
+
+def calificacion_minima(calificaciones):
+    pass
+
+
+def contar_aprobados(calificaciones):
+    pass
+
+
+def contar_reprobados(calificaciones):
+    pass
+
+
+def clasificar_calificacion(calificacion):
+    pass
+
+
+def promedio(calificaciones):
+>>>>>>> master
     pass
 
 
 def porcentaje_aprobados(calificaciones):
+<<<<<<< HEAD
    
     if not calificaciones:
         return 0.0
@@ -101,10 +133,13 @@ def porcentaje_aprobados(calificaciones):
     aprobados = [c for c in calificaciones if c >= 70]
     
     return (len(aprobados) / len(calificaciones)) * 100
+=======
+>>>>>>> master
     pass
 
 
 def porcentaje_reprobados(calificaciones):
+<<<<<<< HEAD
   
     if not calificaciones:
         return 0.0
@@ -115,10 +150,13 @@ def porcentaje_reprobados(calificaciones):
     return float(porcentaje)
     
     
+=======
+>>>>>>> master
     pass
 
 
 def frecuencia_calificaciones(calificaciones):
+<<<<<<< HEAD
    
     frecuencias = {}
     
@@ -129,10 +167,13 @@ def frecuencia_calificaciones(calificaciones):
             frecuencias[nota] = 1
             
     return frecuencias
+=======
+>>>>>>> master
     pass
 
 
 def moda(calificaciones):
+<<<<<<< HEAD
     if not calificaciones:
         return None
     
@@ -141,10 +182,13 @@ def moda(calificaciones):
         frecuencias[nota] = frecuencias.get(nota, 0) + 1
     
     return max(frecuencias, key=frecuencias.get)
+=======
+>>>>>>> master
     pass
 
 
 def mediana(calificaciones):
+<<<<<<< HEAD
     
     if not calificaciones:
         return None
@@ -158,10 +202,13 @@ def mediana(calificaciones):
    
     else:
         return (lista_ordenada[medio - 1] + lista_ordenada[medio]) / 2
+=======
+>>>>>>> master
     pass
 
 
 def resumen_calificaciones(calificaciones):
+<<<<<<< HEAD
   
     if not calificaciones:
         return {
@@ -194,3 +241,6 @@ def resumen_calificaciones(calificaciones):
         "distribucion": frecuencia_calificaciones(calificaciones)
     }
     pass
+=======
+    pass
+>>>>>>> master
