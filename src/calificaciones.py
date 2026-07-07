@@ -134,3 +134,4 @@ def resumen_calificaciones(calificaciones):
         "porcentaje_reprobados": porcentaje_reprobados(calificaciones),
         "distribucion": frecuencia_calificaciones(calificaciones)
     }
+# by osvdevv
