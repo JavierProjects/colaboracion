@@ -7,31 +7,80 @@ condicionales, diccionarios y funciones.
 
 
 def contar_calificaciones(calificaciones):
-    pass
+    contador = 0
+
+    for calificacion in calificaciones:
+        contador += 1
+
+    return contador
+
 
 
 def sumar_calificaciones(calificaciones):
-    pass
+    suma = 0
+
+    for calificacion in calificaciones:
+        suma += calificacion
+
+    return suma
+
 
 
 def calificacion_maxima(calificaciones):
-    pass
+    if len(calificaciones) == 0:
+        return None
+
+    maxima = calificaciones[0]
+
+    for calificacion in calificaciones:
+        if calificacion > maxima:
+            maxima = calificacion
+
+    return maxima
+
 
 
 def calificacion_minima(calificaciones):
-    pass
+    if len(calificaciones) == 0:
+        return None
+
+    minima = calificaciones[0]
+
+    for calificacion in calificaciones:
+        if calificacion < minima:
+            minima = calificacion
+
+    return minima
 
 
 def contar_aprobados(calificaciones):
-    pass
+    contador = 0
 
+    for calificacion in calificaciones:
+        if calificacion >= 70:
+            contador += 1
 
+    return contador
+    
 def contar_reprobados(calificaciones):
-    pass
+    contador = 0
+
+    for calificacion in calificaciones:
+        if calificacion < 70:
+            contador += 1
+
+    return contador
 
 
 def clasificar_calificacion(calificacion):
-    pass
+    if calificacion >= 90:
+        return "Excelente"
+    elif calificacion >= 80:
+        return "Bueno"
+    elif calificacion >= 70:
+        return "Regular"
+    else:
+        return "Reprobado"
 
 
 def promedio(calificaciones):
