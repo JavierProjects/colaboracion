@@ -82,4 +82,4 @@ def promedio_asistencia_grupo(asistencias):
     if contador_alumnos > 0:
         return suma_porcentajes / contador_alumnos
     else:
-        return 0.0
+        return 0
