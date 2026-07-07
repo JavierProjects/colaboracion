@@ -48,6 +48,13 @@ def respuesta_mas_comun(respuestas):
 
 
 def porcentaje_respuesta(respuestas, opcion):
+    if not respuestas:
+        return 0.0
+ 
+    frecuencias = frecuencia_respuestas(respuestas)
+    conteo = frecuencias.get(opcion, 0)
+ 
+    return (conteo / len(respuestas)) * 100
     pass
 
 
