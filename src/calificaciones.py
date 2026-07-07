@@ -7,7 +7,6 @@ condicionales, diccionarios y funciones.
 
 
 def contar_calificaciones(calificaciones):
-<<<<<<< HEAD
     if not calificaciones:
         return 0
     return len(calificaciones)
@@ -37,7 +36,7 @@ def contar_aprobados(calificaciones):
     aprobados = 0
     for c in calificaciones:
         if c >= 70:
-=======
+
     contador = 0
     for contar in calificaciones:
         contador += 1
@@ -75,29 +74,25 @@ def contar_aprobados(calificaciones):
     aprobados = 0
     for calificacion in calificaciones:
         if calificacion >= 70:
->>>>>>> 1628f27d932dbbc1765b43ecab1206c30f46134b
             aprobados += 1
     return aprobados
 
 
 def contar_reprobados(calificaciones):
-<<<<<<< HEAD
     if not calificaciones:
         return 0
     reprobados = 0
     for c in calificaciones:
         if c < 70:
-=======
+            
     reprobados = 0
     for calificacion in calificaciones:
         if calificacion < 70:
->>>>>>> 1628f27d932dbbc1765b43ecab1206c30f46134b
             reprobados += 1
     return reprobados
 
 
 def clasificar_calificacion(calificacion):
-<<<<<<< HEAD
     if calificacion >= 90:
         return "Excelente"
     elif calificacion >= 80:
@@ -138,7 +133,6 @@ def frecuencia_calificaciones(calificaciones):
             frecuencias[c_int] += 1
         else:
             frecuencias[c_int] = 1
-=======
     if calificacion >= 90: return "Excelente"
     if calificacion >= 80: return "Bueno"
     if calificacion >= 70: return "Regular"
@@ -167,14 +161,13 @@ def frecuencia_calificaciones(calificaciones):
             frecuencias[calificacion] += 1
         else:
             frecuencias[calificacion] = 1
->>>>>>> 1628f27d932dbbc1765b43ecab1206c30f46134b
     return frecuencias
 
 
 def moda(calificaciones):
     if not calificaciones:
         return None
-<<<<<<< HEAD
+
     
     frecuencias = frecuencia_calificaciones(calificaciones)
     max_frecuencia = -1
@@ -187,7 +180,6 @@ def moda(calificaciones):
             
     return int(moda_valor) if moda_valor is not None else None
 
-=======
     frecuencias = frecuencia_calificaciones(calificaciones)
     
     maxfrecuencia = 0
@@ -199,12 +191,11 @@ def moda(calificaciones):
             moda = calificacion
             
     return moda
->>>>>>> 1628f27d932dbbc1765b43ecab1206c30f46134b
 
 def mediana(calificaciones):
     if not calificaciones:
         return None
-<<<<<<< HEAD
+
     
     lista_ordenada = sorted(calificaciones)
     n = len(lista_ordenada)
@@ -240,7 +231,7 @@ def resumen_calificaciones(calificaciones):
         "porcentaje_aprobados": porcentaje_aprobados(calificaciones),
         "porcentaje_reprobados": porcentaje_reprobados(calificaciones),
         "distribucion": frecuencia_calificaciones(calificaciones)
-=======
+
     lista = list(calificaciones)
     n = contar_calificaciones(lista)
     for i in range(n):
@@ -266,5 +257,5 @@ def resumen_calificaciones(calificaciones):
         "moda": moda(calificaciones),
         "mediana": mediana(calificaciones),
         "distribucion": frecuencia_calificaciones(calificaciones) 
->>>>>>> 1628f27d932dbbc1765b43ecab1206c30f46134b
+
     }
