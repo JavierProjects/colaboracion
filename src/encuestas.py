@@ -6,6 +6,7 @@ Implementa funciones para analizar respuestas usando listas y diccionarios.
 
 
 def contar_respuestas(respuestas):
+    return len(respuestas)
     pass
 
 
