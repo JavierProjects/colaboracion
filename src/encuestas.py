@@ -1,5 +1,6 @@
 """
 Módulo de encuestas.
+
 Implementa funciones para analizar respuestas usando listas y diccionarios.
 """
 
