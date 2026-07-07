@@ -31,6 +31,19 @@ def frecuencia_respuestas(respuestas):
 
 
 def respuesta_mas_comun(respuestas):
+    if not respuestas:
+        return None
+ 
+    frecuencias = frecuencia_respuestas(respuestas)
+ 
+    mas_comun = None
+    max_conteo = -1
+    for opcion in obtener_opciones(respuestas):
+        if frecuencias[opcion] > max_conteo:
+            max_conteo = frecuencias[opcion]
+            mas_comun = opcion
+ 
+    return mas_comun
     pass
 
 
