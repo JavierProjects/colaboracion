@@ -87,15 +87,12 @@ def moda(calificaciones):
         return None
 
     frecuencias = frecuencia_calificaciones(calificaciones)
-    mayor = 0
-    resultado = None
+
+    mayor_frecuencia = max(frecuencias.values())
 
     for calificacion, frecuencia in frecuencias.items():
-        if frecuencia > mayor:
-            mayor = frecuencia
-            resultado = calificacion
-
-    return resultado
+        if frecuencia == mayor_frecuencia:
+            return calificacion
 
 
 def mediana(calificaciones):
