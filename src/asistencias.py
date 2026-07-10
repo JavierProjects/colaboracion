@@ -14,18 +14,16 @@ def contar_clases(asistencias_alumno):
     return len(asistencias_alumno)
 
 
-
 def contar_asistencias(asistencias_alumno):
-    rep = 0
+    rep = 0 
     for n in asistencias_alumno:
         if n == 1:
             rep = rep + 1
     return rep
 
 
-
 def contar_faltas(asistencias_alumno):
-     rep = 0
+    rep = 0
     for n in asistencias_alumno:
         if n == 0:
             rep = rep + 1
@@ -33,7 +31,7 @@ def contar_faltas(asistencias_alumno):
 
 
 def porcentaje_asistencia(asistencias_alumno):
- if len(asistencias_alumno) == 0:
+    if len(asistencias_alumno) == 0:
         return 0.0
     rep1 = 0
     for n in asistencias_alumno:
@@ -42,16 +40,18 @@ def porcentaje_asistencia(asistencias_alumno):
     porcentaje = (rep1 / len(asistencias_alumno)) * 100
     return porcentaje
 
+
 def esta_en_riesgo(asistencias_alumno):
-     rep = 0
+    rep = 0 
     for n in asistencias_alumno:
-        if n == 1:
+        if n == 1: 
             rep = rep + 1
     porcentaje = (rep / len(asistencias_alumno)) * 100
     if porcentaje < 80:
         return True
     else:
         return False
+
 
 def alumnos_en_riesgo(asistencias):
     riesgo = []
@@ -66,9 +66,10 @@ def alumnos_en_riesgo(asistencias):
         if porcentaje < 80:
             riesgo.append(alumno)
     return riesgo
-    
+
+
 def promedio_asistencia_grupo(asistencias):
-porcentajes = 0.0
+    porcentajes = 0.0
     tot_almn = 0
     for alumno, lista_asistencia in asistencias.items():
         tot_almn = tot_almn +1
