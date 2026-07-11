@@ -34,7 +34,7 @@ def frecuencia_respuestas(respuestas):
 
     return frecuencias
 
-  def porcentaje_respuesta(respuestas, opcion):
+def porcentaje_respuesta(respuestas, opcion):
     total = contar_respuestas(respuestas)
 
     if total == 0:
