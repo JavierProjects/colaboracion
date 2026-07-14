@@ -1,62 +1,95 @@
-"""
-Módulo de calificaciones.
-
-Implementa estas funciones usando Python puro: listas, ciclos,
-condicionales, diccionarios y funciones.
-"""
-
-
 def contar_calificaciones(calificaciones):
-    pass
+    return len(calificaciones)
 
 
 def sumar_calificaciones(calificaciones):
-    pass
+    return sum(calificaciones)
 
 
 def calificacion_maxima(calificaciones):
-    pass
+    if not calificaciones:
+        return None
+    return max(calificaciones)
 
 
 def calificacion_minima(calificaciones):
-    pass
-
-
-def contar_aprobados(calificaciones):
-    pass
-
-
-def contar_reprobados(calificaciones):
-    pass
+    if not calificaciones:
+        return None
+    return min(calificaciones)
 
 
 def clasificar_calificacion(calificacion):
-    pass
+    if calificacion >= 70:
+        return "aprobado"
+    return "reprobado"
 
 
 def promedio(calificaciones):
-    pass
+    if not calificaciones:
+        return None
+    return sum(calificaciones) / len(calificaciones)
 
 
 def porcentaje_aprobados(calificaciones):
-    pass
+    if not calificaciones:
+        return 0.0
+    aprobados = [c for c in calificaciones if c >= 70]
+    return (len(aprobados) / len(calificaciones)) * 100
 
 
 def porcentaje_reprobados(calificaciones):
-    pass
+    if not calificaciones:
+        return 0.0
+    reprobados = [c for c in calificaciones if c < 70]
+    return (len(reprobados) / len(calificaciones)) * 100
 
 
 def frecuencia_calificaciones(calificaciones):
-    pass
+    frecuencia = {}
+    for c in calificaciones:
+        frecuencia[c] = frecuencia.get(c, 0) + 1
+    return frecuencia
 
 
 def moda(calificaciones):
-    pass
+    if not calificaciones:
+        return None
+    frecuencia = frecuencia_calificaciones(calificaciones)
+    return max(frecuencia, key=frecuencia.get)
 
 
 def mediana(calificaciones):
-    pass
+    if not calificaciones:
+        return None
+    ordenadas = sorted(calificaciones)
+    n = len(ordenadas)
+    medio = n // 2
+    if n % 2 == 1:
+        return ordenadas[medio]
+    return (ordenadas[medio - 1] + ordenadas[medio]) / 2
 
 
 def resumen_calificaciones(calificaciones):
-    pass
+    if not calificaciones:
+        return {
+            "total": 0,
+            "promedio": None,
+            "moda": None,
+            "mediana": None,
+            "maxima": None,
+            "minima": None,
+            "porcentaje_aprobados": 0.0,
+            "porcentaje_reprobados": 0.0,
+            "distribucion": {}
+        }
+    return {
+        "total": len(calificaciones),
+        "promedio": promedio(calificaciones),
+        "moda": moda(calificaciones),
+        "mediana": mediana(calificaciones),
+        "maxima": max(calificaciones),
+        "minima": min(calificaciones),
+        "porcentaje_aprobados": porcentaje_aprobados(calificaciones),
+        "porcentaje_reprobados": porcentaje_reprobados(calificaciones),
+        "distribucion": frecuencia_calificaciones(calificaciones)
+    }
