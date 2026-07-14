@@ -99,5 +99,3 @@ def resumen_encuesta(respuestas):
     }
 
     return resumen
-
-
