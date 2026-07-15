@@ -18,10 +18,23 @@ def calificacion_minima(calificaciones):
     return min(calificaciones)
 
 
+def contar_aprobados(calificaciones):
+    return len([c for c in calificaciones if c >= 70])
+
+
+def contar_reprobados(calificaciones):
+    return len([c for c in calificaciones if c < 70])
+
+
 def clasificar_calificacion(calificacion):
-    if calificacion >= 70:
-        return "aprobado"
-    return "reprobado"
+    if calificacion >= 90:
+        return "Excelente"
+    elif calificacion >= 80:
+        return "Bueno"
+    elif calificacion >= 70:
+        return "Regular"
+    else:
+        return "Reprobado"
 
 
 def promedio(calificaciones):
