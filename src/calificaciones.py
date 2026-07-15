@@ -76,24 +76,24 @@ def frecuencia_calificaciones(calificaciones):
 
 
 def moda(calificaciones):
-    if not calificaciones:
+    if len(calificaciones) == 0:
         return None
     
-    frecuencias = {}
-    for nota in calificaciones:
-        frecuencias[nota] = frecuencias.get(nota, 0) + 1
+    elemento_mas_repetido = calificaciones[0]
+    maximo_repeticiones = 0
 
-    moda_valor = None
-    max_freciencia = 0
+    for calificacion_actual in calificaciones:
+        veces_que_aparece = 0
 
-    for nota in frecuencias:
-        frecuencia = frecuencias[nota]
+        for otra_calificacion in calificaciones:
+            if calificacion_actual == otra_calificacion:
+                veces_que_aparece = veces_que_aparece + 1
 
-        if frecuencia > max_frecuencia or (frecuencia == max_frecuencia and (moda_valor is None or nota > moda_valor)):
-            max_frecuencia = frecuencia
-            moda_valor = nota
+        if veces_que_aparece > maximo_repeticiones:
+            maximo_repeticiones = veces_que_aparece
+            elemento_mas_repetido = calificacion_actual
     
-    return moda_valor
+    return elemento_mas_repetido
 
 
 def mediana(calificaciones):
