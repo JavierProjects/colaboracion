@@ -83,4 +83,39 @@ def porcentaje_respuesta(respuestas, opcion):
 
 
 def resumen_encuesta(respuestas):
-    pass
+     if len(respuestas) == 0:
+        return {
+            "total": 0,
+            "opciones": [],
+            "frecuencias": {},
+            "mas_comun": None
+        }
+
+    total = len(respuestas)
+
+    opciones = []
+    for r in respuestas:
+        if r not in opciones:
+            opciones.append(r)
+
+    frecuencias = {}
+    for r in respuestas:
+        if r in frecuencias:
+            frecuencias[r] += 1
+        else:
+            frecuencias[r] = 1
+
+    mas_comun = None
+    max_count = 0
+
+    for clave, valor in frecuencias.items():
+        if valor > max_count:
+            max_count = valor
+            mas_comun = clave
+
+    return {
+        "total": total,
+        "opciones": opciones,
+        "frecuencias": frecuencias,
+        "mas_comun": mas_comun
+    }
