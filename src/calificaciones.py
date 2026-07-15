@@ -7,67 +7,73 @@ condicionales, diccionarios y funciones.
 
 
 def contar_calificaciones(calificaciones):
-     return len(calificaciones)
-    pass
+    """Cuenta cuántas calificaciones hay en una lista."""
+    contador = 0
+    for _ in calificaciones:
+        contador += 1
+    return contador
 
 
 def sumar_calificaciones(calificaciones):
-    return sum(calificaciones)
-    pass
+    """Suma todas las calificaciones de una lista."""
+    suma = 0
+    for calificacion in calificaciones:
+        suma += calificacion
+    return suma
 
 
 def calificacion_maxima(calificaciones):
-    if contar_calificaciones(calificaciones) == 0:
+    """Regresa la calificación más alta. Si la lista está vacía, regresa None."""
+    if not calificaciones:
         return None
+    
     maxima = calificaciones[0]
     for calificacion in calificaciones:
         if calificacion > maxima:
             maxima = calificacion
     return maxima
-    
-    pass
 
 
 def calificacion_minima(calificaciones):
-    if contar_calificaciones(calificaciones) == 0:
+    """Regresa la calificación más baja. Si la lista está vacía, regresa None."""
+    if not calificaciones:
         return None
- 
+    
     minima = calificaciones[0]
     for calificacion in calificaciones:
         if calificacion < minima:
             minima = calificacion
     return minima
-    pass
 
 
 def contar_aprobados(calificaciones):
-    contador = 0
+    """Cuenta cuántas calificaciones son mayores o iguales a 70."""
+    aprobados = 0
     for calificacion in calificaciones:
         if calificacion >= 70:
-            contador += 1
-    return contador
-    pass
+            aprobados += 1
+    return aprobados
 
 
 def contar_reprobados(calificaciones):
-    contador = 0
+    """Cuenta cuántas calificaciones son menores a 70."""
+    reprobados = 0
     for calificacion in calificaciones:
         if calificacion < 70:
-            contador += 1
-    return contador
-    pass
+            reprobados += 1
+    return reprobados
 
 
 def clasificar_calificacion(calificacion):
-     if calificacion >= 90:
+    """Clasifica una calificación según los rangos establecidos."""
+    if 90 <= calificacion <= 100:
         return "Excelente"
-    elif calificacion >= 80:
+    elif 80 <= calificacion <= 89:
         return "Bueno"
-    elif calificacion >= 70:
+    elif 70 <= calificacion <= 79:
         return "Regular"
     else:
         return "Reprobado"
-    pass
 
 
 def promedio(calificaciones):
