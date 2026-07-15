@@ -26,7 +26,7 @@ def calificacion_minima(calificaciones):
 def contar_aprobados(calificaciones):
     aprobados = 0
     for calificacion in calificaciones:
-        if calificaciones >= 70:
+        if calificacion >= 70:
             aprobados += 1
     return aprobados
 
@@ -43,7 +43,7 @@ def clasificar_calificacion(calificacion):
     if calificacion >= 90:
         return "Excelente"
     elif calificacion >= 80:
-        return "Buena"
+        return "Bueno"
     elif calificacion >= 70:
         return "Regular"
     else:
