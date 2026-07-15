@@ -1,35 +1,29 @@
 """
-Módulo de asistencias.
-
-Representación:
-1 = asistió
-0 = faltó
+Módulo de encuestas.
 """
 
+def promedio_encuestas(respuestas):
+    if not respuestas: return 0.0
+    return float(sum(respuestas) / len(respuestas))
 
-def contar_clases(asistencias_alumno):
-    pass
+def contar_respuestas(respuestas):
+    return len(respuestas)
 
+def obtener_opciones(respuestas):
+    return list(set(respuestas))
 
-def contar_asistencias(asistencias_alumno):
-    pass
+def frecuencia_respuestas(respuestas):
+    frecuencias = {}
+    for r in respuestas:
+        frecuencias[r] = frecuencias.get(r, 0) + 1
+    return frecuencias
 
+def respuesta_mas_frecuente(respuestas):
+    if not respuestas: return None
+    frecuencias = frecuencia_respuestas(respuestas)
+    return max(frecuencias, key=frecuencias.get)
 
-def contar_faltas(asistencias_alumno):
-    pass
-
-
-def porcentaje_asistencia(asistencias_alumno):
-    pass
-
-
-def esta_en_riesgo(asistencias_alumno):
-    pass
-
-
-def alumnos_en_riesgo(asistencias):
-    pass
-
-
-def promedio_asistencia_grupo(asistencias):
-    pass
+def porcentaje_respuesta(respuestas, opcion):
+    if not respuestas: return 0.0
+    conteo = respuestas.count(opcion)
+    return (conteo / len(respuestas)) * 100.0
