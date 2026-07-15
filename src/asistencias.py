@@ -6,7 +6,7 @@ Representación:
 0 = faltó
 """
 
-def contar_clases(asistencias_alumno):
+def contar_clasess(asistencias_alumno):
     total_clases = len(asistencias_alumno)
     return total_clases
 
