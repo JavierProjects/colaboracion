@@ -37,15 +37,16 @@ def clasificar_calificacion(calificacion):
 def promedio(calificaciones):
     if not calificaciones:
         return None
-    return sum(calificaciones)/ len(caliuficaciones)
+    return sum(calificaciones)/ len(calificaciones)
 
 
 def porcentaje_aprobados(calificaciones):
     if not calificaciones:
         return 0.0
     aprobados =  0
-    for nota >= 70:
-        aprobados += 1
+    for calificacion in calificaciones:
+        if calificacion >= 70:
+           aprobados += 1
     return (aprobados / len(calificaciones)) * 100
 
 
@@ -81,25 +82,32 @@ def moda(calificaciones):
     frecuencias = {}
     for nota in calificaciones:
         frecuencias[nota] = frecuencias.get(nota, 0) + 1
-        
-    moda = max(frecuencias, key=frecuencias.get)
+
+    moda_valor = None
+    max_freciencia = 0
+
+    for nota in frecuencias:
+        frecuencia = frecuencias[nota]
+
+        if frecuencia > max_frecuencia or (frecuencia == max_frecuencia and (moda_valor is None or nota > moda_valor)):
+            max_frecuencia = frecuencia
+            moda_valor = nota
     
-    return moda
+    return moda_valor
 
 
 def mediana(calificaciones):
      if not calificaciones:
         return None
-    
-    ordenadas = sorted(calificaciones)
-    n = len(ordenadas)
-    centro = n // 2
-    
-    if n % 2 != 0:
-        return float(ordenadas[centro])
-    
-    else:
-        return (ordenadas[centro - 1] + ordenadas[centro]) / 2.0
+     ordenadas = sorted(calificaciones)
+     n = len(ordenadas)
+     centro = n // 2
+
+     if n % 2 != 0:
+
+         return float(ordenadas[centro])   
+     else:
+         return (ordenadas[centro - 1] + ordenadas[centro]) / 2.0
 
 
 
@@ -116,34 +124,40 @@ def resumen_calificaciones(calificaciones):
             "porcentaje_reprobados": 0.0,
             "distribucion": {}
         }
-    
-    total = len(calificaciones)
-    
-    maxima = max(calificaciones)
-    minima = min(calificaciones)
-    
-    promedio = sum(calificaciones) / total
-    
-    distribucion = {}
-    for nota in calificaciones:
+     total = len(calificaciones)
+
+     maxima = max(calificaciones)
+     minima = min(calificaciones)
+     
+     promedio = sum(calificaciones) / total
+     
+     distribucion = {}
+     for nota in calificaciones:
         distribucion[nota] = distribucion.get(nota, 0) + 1
         
-    moda = max(distribucion, key=distribucion.get)
-    
-    notas_ordenadas = sorted(calificaciones)
-    indice_mitad = total // 2
-    if total % 2 != 0:
-        mediana = float(notas_ordenadas[indice_mitad])
-    else:
-        mediana = (notas_ordenadas[indice_mitad - 1] + notas_ordenadas[indice_mitad]) / 2.0
+        moda = None
+        max_frecuencia = 0
+
+        for nota in distribucion:
+            frecuencia = distribucion[nota]
+            if frecuencia > max_frecuencia or (frecuencia == max_frecuencia and (moda is None or nota > moda)):
+                max_frecuencia = frecuencia
+                moda = nota
+
+        notas_ordenadas = sorted(calificaciones)
+        indice_mitad = total // 2
         
-    aprobados = sum(1 for nota in calificaciones if nota >= 70)
-    reprobados = total - aprobados
-    
-    porcentaje_aprobados = (aprobados / total) * 100
-    porcentaje_reprobados = (reprobados / total) * 100
-    
-    return {
+        if total % 2 != 0:
+            mediana = float(notas_ordenadas[indice_mitad])
+        else:
+            mediana = (notas_ordenadas[indice_mitad - 1] + notas_ordenadas[indice_mitad]) / 2.0
+        aprobados = sum(1 for nota in calificaciones if nota >= 70)
+        reprobados = total - aprobados
+        
+        porcentaje_aprobados = (aprobados / total) * 100
+        porcentaje_reprobados = (reprobados / total) * 100
+        
+        return {
         "total": total,
         "promedio": promedio,
         "moda": moda,
@@ -154,4 +168,3 @@ def resumen_calificaciones(calificaciones):
         "porcentaje_reprobados": porcentaje_reprobados,
         "distribucion": distribucion
     }
-    return resultado
