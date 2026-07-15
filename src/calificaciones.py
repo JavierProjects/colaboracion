@@ -112,7 +112,7 @@ def mediana(calificaciones):
 
 
 def resumen_calificaciones(calificaciones):
-     if not calificaciones:
+     if len(calificaciones) == 0:
         return {
             "total": 0,
             "promedio": None,
@@ -124,47 +124,62 @@ def resumen_calificaciones(calificaciones):
             "porcentaje_reprobados": 0.0,
             "distribucion": {}
         }
-     total = len(calificaciones)
-
-     maxima = max(calificaciones)
-     minima = min(calificaciones)
-     
-     promedio = sum(calificaciones) / total
-     
-     distribucion = {}
+     total_elementos = len(calificaciones)
+     maxima_nota = calificaciones[0]
+     minima_nota = calificaciones[0]
+     suma_total = 0
+     aprobados = 0
      for nota in calificaciones:
-        distribucion[nota] = distribucion.get(nota, 0) + 1
+        suma_total = suma_total + nota
         
-        moda = None
-        max_frecuencia = 0
-
-        for nota in distribucion:
-            frecuencia = distribucion[nota]
-            if frecuencia > max_frecuencia or (frecuencia == max_frecuencia and (moda is None or nota > moda)):
-                max_frecuencia = frecuencia
-                moda = nota
-
-        notas_ordenadas = sorted(calificaciones)
-        indice_mitad = total // 2
+        if nota > maxima_nota:
+            maxima_nota = nota
+            
+        if nota < minima_nota:
+            minima_nota = nota
+            
+        if nota >= 70:
+            aprobados = aprobados + 1
+     promedio_notas = suma_total / total_elementos
+     porcentaje_ap = (aprobados / total_elementos) * 100
+     porcentaje_rep = 100.0 - porcentaje_ap
+     elemento_mas_repetido = calificaciones[0]
+     maximo_repeticiones = 0
+     for calificacion_actual in calificaciones:
+        veces_que_aparece = 0
+        for otra_calificacion in calificaciones:
+            if calificacion_actual == otra_calificacion:
+                veces_que_aparece = veces_que_aparece + 1
+        if veces_que_aparece > maximo_repeticiones:
+            maximo_repeticiones = veces_que_aparece
+            elemento_mas_repetido = calificacion_actual
+     lista_ordenada = list(calificaciones)
+     for i in range(len(lista_ordenada)):
+        for j in range(0, len(lista_ordenada) - i - 1):
+            if lista_ordenada[j] > lista_ordenada[j+1]:
+                lista_ordenada[j], lista_ordenada[j+1] = lista_ordenada[j+1], lista_ordenada[j]
+     mitad = len(lista_ordenada) // 2
+     if len(lista_ordenada) % 2 == 0:
+        mediana_nota = (lista_ordenada[mitad - 1] + lista_ordenada[mitad]) / 2.0
+     else:
+        mediana_nota = float(lista_ordenada[mitad])
         
-        if total % 2 != 0:
-            mediana = float(notas_ordenadas[indice_mitad])
-        else:
-            mediana = (notas_ordenadas[indice_mitad - 1] + notas_ordenadas[indice_mitad]) / 2.0
-        aprobados = sum(1 for nota in calificaciones if nota >= 70)
-        reprobados = total - aprobados
-        
-        porcentaje_aprobados = (aprobados / total) * 100
-        porcentaje_reprobados = (reprobados / total) * 100
-        
-        return {
-        "total": total,
-        "promedio": promedio,
-        "moda": moda,
-        "mediana": mediana,
-        "maxima": maxima,
-        "minima": minima,
-        "porcentaje_aprobados": porcentaje_aprobados,
-        "porcentaje_reprobados": porcentaje_reprobados,
-        "distribucion": distribucion
+     diccionario_distribucion = {}
+     for nota in calificaciones:
+        if nota not in diccionario_distribucion:
+            cuenta = 0
+            for c in calificaciones:
+                if c == nota:
+                    cuenta = cuenta + 1
+            diccionario_distribucion[nota] = cuenta
+     return {
+        "total": total_elementos,
+        "promedio": promedio_notas,
+        "moda": elemento_mas_repetido,
+        "mediana": mediana_nota,
+        "maxima": maxima_nota,
+        "minima": minima_nota,
+        "porcentaje_aprobados": porcentaje_ap,
+        "porcentaje_reprobados": porcentaje_rep,
+        "distribucion": diccionario_distribucion
     }
