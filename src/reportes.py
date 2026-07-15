@@ -13,7 +13,7 @@ def reporte_general(calificaciones, asistencias, respuestas):
     Integracion de resultados de calificaciones, asistencias y encuestas en un mismo diccionario
     """
     return {
-        "promedio_clasificaciones": promedio(calificaciones),
+        "promedio_calificaciones": promedio(calificaciones),
         "porcentaje_aprobados": porcentaje_aprobados(calificaciones),
         "promedio_asistencia": promedio_asistencia_grupo(asistencias),
         "respuesta_mas_comun": respuesta_mas_comun(respuestas)
